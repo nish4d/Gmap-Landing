@@ -40,6 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
+        suppressHydrationWarning
         className={`${inter.variable} font-sans antialiased bg-[#050505] text-gray-50`}
       >
         {children}

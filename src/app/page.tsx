@@ -427,7 +427,7 @@ function Hero() {
                 <div className="text-sm text-white font-semibold flex items-center gap-1">
                   <span className="text-yellow-400">⭐</span> 4.9/5 rating
                 </div>
-                <div className="text-xs text-gray-500">Trusted by 50,000+ professionals in 80+ countries</div>
+                <div className="text-xs text-gray-500">Used by 8,000+ professionals in 80+ countries</div>
               </div>
             </motion.div>
           </motion.div>
@@ -901,18 +901,19 @@ function HowItWorks() {
 
 function Stats() {
   const stats = [
-    { value: 127, suffix: "M+", label: "Leads Extracted", icon: Zap, color: "text-green-400", bg: "bg-green-500/10 border-green-500/20" },
-    { value: 50000, suffix: "+", label: "Active Users", icon: Globe, color: "text-blue-400", bg: "bg-blue-500/10 border-blue-500/20" },
-    { value: 195, label: "Countries Supported", icon: MapPin, color: "text-purple-400", bg: "bg-purple-500/10 border-purple-500/20" },
-    { value: 49, suffix: " ★", label: "Average Rating", icon: Mail, color: "text-yellow-400", bg: "bg-yellow-500/10 border-yellow-500/20" },
+    { value: 2, suffix: "M+", label: "Leads Extracted", icon: Zap, color: "text-green-400", bg: "bg-green-500/10 border-green-500/20" },
+    { value: 8000, suffix: "+", label: "Active Users", icon: Globe, color: "text-blue-400", bg: "bg-blue-500/10 border-blue-500/20" },
+    { value: 80, suffix: "+", label: "Countries", icon: MapPin, color: "text-purple-400", bg: "bg-purple-500/10 border-purple-500/20" },
+    { value: null, displayText: "4.9 ★", label: "Average Rating", icon: Mail, color: "text-yellow-400", bg: "bg-yellow-500/10 border-yellow-500/20" },
   ];
+
   return (
     <section className="py-24 md:py-32 bg-[#050505] relative overflow-hidden">
       <div className="absolute -top-24 right-1/2 translate-x-1/2 w-[620px] h-[620px] blur-[120px] opacity-15 bg-green-500 rounded-full pointer-events-none" />
       <div className={cn(containerClass, "relative")}>
         <div className="text-center mb-12">
-          <h2 className="font-bold text-3xl md:text-4xl text-white">Trusted at Scale</h2>
-          <p className="mt-3 text-gray-500 text-sm">Numbers that speak for themselves.</p>
+          <h2 className="font-bold text-3xl md:text-4xl text-white">By the Numbers</h2>
+          <p className="mt-3 text-gray-500 text-sm">A snapshot of MapLeads Pro in action.</p>
         </div>
         <motion.div
           variants={stagger}
@@ -928,10 +929,18 @@ function Stats() {
                 <div className={cn("h-11 w-11 rounded-xl border flex items-center justify-center mb-4", s.bg)}>
                   <Icon className={cn("h-5 w-5", s.color)} />
                 </div>
-                <StatCounter value={s.value} suffix={s.suffix} label={s.label} />
+                {s.value !== null && s.value !== undefined ? (
+                  <StatCounter value={s.value} suffix={s.suffix} label={s.label} />
+                ) : (
+                  <div className="flex flex-col items-center text-center px-6">
+                    <div className="text-5xl font-black text-white tabular-nums">{s.displayText}</div>
+                    <div className="text-sm text-gray-500 uppercase tracking-widest mt-2">{s.label}</div>
+                  </div>
+                )}
               </motion.div>
             );
           })}
+
         </motion.div>
       </div>
     </section>
@@ -1072,12 +1081,12 @@ function Pricing() {
 
 function Testimonials() {
   const testimonials = [
-    { initials: "MR", name: "Marcus Reynolds", role: "Founder, GrowthLab Agency", highlight: "3,200 leads in one afternoon", quote: "I generated 3,200 roofing contractor leads across 12 cities in a single afternoon. What used to take my VA a full week now takes me 2 hours. MapLeads Pro paid for itself on day one." },
-    { initials: "ST", name: "Sarah Thomasson", role: "B2B Sales Manager, SalesForge", highlight: "12% → 41% contact rate", quote: "The email finder alone is worth 10x the subscription cost. We went from 12% to 41% contact rates on outreach campaigns after switching to MapLeads data." },
-    { initials: "JK", name: "James Kowalski", role: "Freelance Lead Gen Consultant", highlight: "30% → 85% profit margin", quote: "I charge clients $800 per lead gen campaign. MapLeads Pro lets me deliver in 1 hour instead of 8. My profit margin went from 30% to over 85%. Absolute game changer." },
-    { initials: "LP", name: "Lisa Park", role: "Marketing Director, ClientFlow", highlight: "Always-current live data", quote: "We tried every lead tool on the market. Nothing comes close to MapLeads for data freshness. The data is pulled live from Google — it is always current." },
-    { initials: "DM", name: "David Morales", role: "Real Estate Investor", highlight: "Fresh phone numbers daily", quote: "As someone who cold calls real estate agents, having fresh, accurate phone numbers is everything. MapLeads gives me a competitive edge none of my competitors have." },
-    { initials: "AH", name: "Amira Hassan", role: "Agency Owner, OutreachHQ", highlight: "15 clients in one session", quote: "Running campaigns for 15 clients simultaneously. The multi-location feature lets me extract leads for all of them in one session. The ROI on this tool is just absurd." },
+    { initials: "MR", name: "Marcus Reynolds", role: "Agency Owner, GrowthLab", highlight: "Saved hours every week", quote: "What used to take my team a full day now takes under an hour. I can pull leads for multiple niches across different cities without any manual copying." },
+    { initials: "ST", name: "Sarah Thomasson", role: "B2B Sales Rep, SalesForge", highlight: "Emails most scrapers miss", quote: "The built-in email finder actually visits each website and pulls the contact email. Other tools just give you a name and phone. MapLeads gives us real contact info." },
+    { initials: "JK", name: "James Kowalski", role: "Freelance Lead Gen Consultant", highlight: "Delivers faster for clients", quote: "I use it for client lead gen campaigns. It extracts data quickly and the CSV export plugs straight into my outreach tools. Saves me from building anything custom." },
+    { initials: "LP", name: "Lisa Park", role: "Marketing Manager, ClientFlow", highlight: "Data is always fresh", quote: "The data comes straight from Google Maps so it reflects current business info. I'm not working from a months-old database — it is what's live on Google right now." },
+    { initials: "DM", name: "David Morales", role: "Real Estate Prospector", highlight: "Phone numbers actually work", quote: "I cold call local businesses and agents. The numbers MapLeads pulls are accurate because they come directly from Google Maps listings — not some recycled list." },
+    { initials: "AH", name: "Amira Hassan", role: "Digital Agency Owner", highlight: "Handles multiple niches", quote: "I run lead campaigns for different industries. Being able to search by business type and location and get a clean export in one click has made my workflow a lot smoother." },
   ];
 
   return (
@@ -1087,14 +1096,14 @@ function Testimonials() {
         <motion.div {...sectionMotionProps}>
           <div className="text-center mb-14">
             <div className="inline-flex items-center gap-2 rounded-full border border-gray-700 bg-gray-900 px-4 py-1.5 text-xs text-gray-400 font-medium mb-5">
-              <span className="text-yellow-400">⭐</span> 4.9 / 5 from 2,400+ reviews
+              <span className="text-yellow-400">⭐</span> Rated 4.9 / 5 by users
             </div>
             <h2 className="font-bold text-4xl md:text-5xl tracking-tight text-white">
-              Loved by{" "}
-              <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">50,000+</span>{" "}
-              Professionals
+              What{" "}
+              <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">Real Users</span>{" "}
+              Are Saying
             </h2>
-            <p className="mt-4 text-gray-400 text-base">Real results from real users across 80+ countries.</p>
+            <p className="mt-4 text-gray-400 text-base">From agencies to freelancers — here's how teams use MapLeads Pro.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -1299,8 +1308,8 @@ function FinalCTA() {
           <br />itself.
         </h2>
         <p className="mt-7 text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
-          Join 50,000+ agencies, freelancers, and sales teams using MapLeads Pro to
-          generate qualified leads every single day — for free.
+          Used by agencies, freelancers, and sales teams to extract real, fresh leads
+          from Google Maps every day — completely free to start.
         </p>
 
         {/* dual CTA */}
@@ -1339,7 +1348,7 @@ function FinalCTA() {
 
         {/* social proof */}
         <div className="mt-10 text-xs text-gray-600">
-          ⭐ 4.9 / 5 · 50,000+ active users · Trusted in 195 countries
+          ⭐ 4.9 / 5 · 8,000+ active users · Works in 80+ countries
         </div>
       </div>
     </section>
